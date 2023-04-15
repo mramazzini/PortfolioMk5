@@ -1,6 +1,5 @@
 import Home from "./pages/Home";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
@@ -71,9 +70,6 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
           </Routes>
         </Router>
       </div>
