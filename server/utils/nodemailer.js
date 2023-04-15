@@ -1,23 +1,29 @@
 const nodemailer = require("nodemailer");
 
-async function sendEmail(name, email, message) {
+async function sendEmail(name, message) {
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: "outlook",
       auth: {
-        user: "your-email@gmail.com", // Your Gmail address
-        pass: "your-gmail-password", // Your Gmail password
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
       },
     });
 
-    await transporter.sendMail({
-      from: "your-email@gmail.com", // Sender email address
-      to: "your-email@gmail.com", // Recipient email address
+    let info = await transporter.sendMail({
+      from: process.env.EMAIL,
+      to: process.env.MY_EMAIL,
       subject: `New message from ${name}`,
-      html: `<p>${message}</p><br/><p>From: ${email}</p>`,
+      text: message,
+      html: `<p>${message}</p><br/>`,
     });
 
-    console.log(`Email sent from ${email}`);
+    console.log("Message sent: %s", info.messageId);
+    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+    // Preview only available when sending through an Ethereal account
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
   } catch (error) {
     console.error(`Failed to send email: ${error}`);
     throw new Error("Failed to send email");
