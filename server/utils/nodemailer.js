@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-async function sendEmail(name, message) {
+async function sendEmail(name, message, contact) {
   try {
     const transporter = nodemailer.createTransport({
       service: "outlook",
@@ -14,8 +14,8 @@ async function sendEmail(name, message) {
       from: process.env.EMAIL,
       to: process.env.MY_EMAIL,
       subject: `New message from ${name}`,
-      text: message,
-      html: `<p>${message}</p><br/>`,
+      text: `Message:\n${message}\nContact information:\n ${contact}`,
+      html: `<p>${message}</p>`,
     });
 
     console.log("Message sent: %s", info.messageId);
