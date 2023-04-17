@@ -1,10 +1,10 @@
 /* General Page */
 :root {
-  --greenColor: #53ef7d;
+  --greenColor: linear-gradient(90deg, #00ff00 0%, #37b137 100%);
 
   --whiteColor: #f7f7ff;
   --blackColor: #1c1c1c;
-  --blueDarkColor: #39587c;
+  --blueDarkColor: #17477e;
   --blueColor: #3599db;
 }
 * {
@@ -159,25 +159,63 @@
   width: 6.5em;
   height: 2.3em;
   margin: 0.5em;
-  background: black;
-  color: white;
+  background: var(--whiteColor);
+  color: var(--blackColor);
   border: none;
   border-radius: 0.625em;
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
   position: relative;
   z-index: 1;
   overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.nav-button.active {
+  background: var(--greenColor) !important;
+  color: var(--whiteColor);
+
+  animation-name: wobble;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+@keyframes wobble {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
+.nav-button.active:hover {
+  background: var(--greenColor) !important;
+  color: var(--whiteColor);
+}
+.nav-button.dark {
+  background: var(--blackColor);
+  color: var(--whiteColor);
+}
 .nav-button:hover {
-  color: black;
+  color: var(--whiteColor);
 }
 
+.nav-button:hover.dark {
+  color: var(--blackColor);
+}
 .nav-button:after {
   content: "";
-  background: white;
+  background: var(--blackColor);
   position: absolute;
   z-index: -1;
   left: -20%;
@@ -187,7 +225,9 @@
   transform: skewX(-45deg) scale(0, 1);
   transition: all 0.5s;
 }
-
+.dark.nav-button:after {
+  background: var(--whiteColor);
+}
 .nav-button:hover:after {
   transform: skewX(-45deg) scale(1, 1);
   -webkit-transition: all 0.5s;
