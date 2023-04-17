@@ -3,6 +3,11 @@ const { sendEmail } = require("../utils/nodemailer");
 
 const resolvers = {
   Query: {
+    message: async (parent, args) => {
+      return "Hello World!";
+    },
+  },
+  Mutation: {
     sendMessage: async (parent, args) => {
       const { sentBy, message, contactInfo } = args;
 

@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-
+require("dotenv").config();
 async function sendEmail(name, message, contact) {
   try {
     const transporter = nodemailer.createTransport({
@@ -14,8 +14,8 @@ async function sendEmail(name, message, contact) {
       from: process.env.EMAIL,
       to: process.env.MY_EMAIL,
       subject: `New message from ${name}`,
-      text: `Message:\n${message}\nContact information:\n ${contact}`,
-      html: `<p>${message}</p>`,
+      text: ``,
+      html: `<h3>Sender:</h3><p>${name}</p><h3>Message:</h3><p>${message}</p><h3>Contact information:</h3><p>${contact}</p>`,
     });
 
     console.log("Message sent: %s", info.messageId);

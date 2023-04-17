@@ -4,6 +4,9 @@ const { gql } = require("apollo-server-express");
 // Refer to 21-Mern (Module 24)
 const typeDefs = gql`
   type Query {
+    message(message: String!, sentBy: String!, contactInfo: String!): String!
+  }
+  type Mutation {
     sendMessage(
       message: String!
       sentBy: String!

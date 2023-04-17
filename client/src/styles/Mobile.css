@@ -1,0 +1,157 @@
+@media (max-width: 768px) {
+  .toggle {
+    width: 60px;
+    height: 30px;
+  }
+  .toggle__handler {
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+  }
+  .toggle__handler .crater {
+    top: 10px;
+    left: 6px;
+    width: 2px;
+    height: 2px;
+  }
+  .toggle__handler .crater--2 {
+    top: 16px;
+    left: 13px;
+    width: 3px;
+    height: 3px;
+  }
+  .toggle__handler .crater--3 {
+    top: 6px;
+    left: 15px;
+    width: 4px;
+    height: 4px;
+  }
+  .star--1 {
+    top: 6px;
+    left: 21px;
+    width: 18px;
+    height: 2px;
+  }
+  .star--2 {
+    top: 11px;
+    left: 17px;
+    width: 18px;
+    height: 2px;
+  }
+  .star--3 {
+    top: 16px;
+    left: 25px;
+    width: 18px;
+    height: 2px;
+  }
+  .star--4 {
+    top: 10px;
+    left: 7px;
+    width: 1px;
+    height: 1px;
+  }
+  .star--5 {
+    top: 20px;
+    left: 11px;
+    width: 2px;
+    height: 2px;
+  }
+  .star--6 {
+    top: 22px;
+    left: 17px;
+    width: 1px;
+    height: 1px;
+  }
+  input:checked + .toggle .star--1 {
+    width: 1px;
+    height: 1px;
+  }
+  input:checked + .toggle .star--2 {
+    width: 2px;
+    height: 2px;
+    transform: translate3d(-3px, 0, 0);
+  }
+  input:checked + .toggle .star--3 {
+    width: 1px;
+    height: 1px;
+    transform: translate;
+  }
+
+  .section-left {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: height 0.5s ease;
+
+    z-index: 2;
+  }
+  .section-left-body {
+    height: auto;
+  }
+  .section-left-adjusted {
+    height: 667px;
+  }
+  .section-left-adjusted .section-left-header {
+    display: none;
+  }
+  .section-right {
+    height: calc(100% - 179px);
+    width: 100%;
+  }
+  .sect .section-left-header {
+    height: auto;
+  }
+  .nav-row {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .home-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .body-hidden {
+    height: 0;
+  }
+
+  .nav-button {
+    font-size: 1rem;
+    width: 25%;
+  }
+  .contact-form {
+    justify-content: flex-start;
+    overflow: scroll;
+  }
+  .contact-form-row input {
+    width: 100%;
+  }
+  .contact-form-row textarea {
+    width: 100%;
+  }
+  .section-right-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+  }
+  .contact-form-row {
+    flex-direction: column;
+  }
+  .nav {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+}

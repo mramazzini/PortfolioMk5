@@ -58,7 +58,7 @@ const HomeBody = () => {
             cursor={false}
             style={{
               textDecoration: "none",
-              fontSize: textAnimationFontSize,
+              fontSize: "2.5em",
             }}
           />
         </div>
@@ -77,13 +77,13 @@ const HomeBody = () => {
       {bodyActivated ? (
         <div className={`section-right ${darkMode ? "dark" : ""} `}>
           {section === "home" ? (
-            <Home />
+            <Home darkMode={darkMode} />
           ) : section === "About" ? (
-            <About />
+            <About darkMode={darkMode} />
           ) : section === "Projects" ? (
-            <Projects />
+            <Projects darkMode={darkMode} />
           ) : section === "Contact" ? (
-            <Contact />
+            <Contact darkMode={darkMode} />
           ) : (
             <Home />
           )}
