@@ -62,7 +62,12 @@ const Contact = ({ darkMode }) => {
           />
         </div>
         <div className="contact-form-row">
-          <button type="submit">Send</button>
+          <button
+            className={`nav-button submit ${darkMode ? "dark" : ""}`}
+            type="submit"
+          >
+            Send
+          </button>
         </div>
         <div className={`section-right-header ${darkMode ? "dark" : ""}`}>
           <h1>I'll get back to you soon!</h1>

@@ -82,7 +82,7 @@
     width: 100%;
 
     display: flex;
-
+    height: auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -94,13 +94,16 @@
     height: auto;
   }
   .section-left-adjusted {
-    height: 667px;
+    height: 179px;
   }
-  .section-left-adjusted .section-left-header {
+  .section-left-adjusted {
+    display: none;
+  }
+  .section-left-header.activated {
     display: none;
   }
   .section-right {
-    height: calc(100% - 179px);
+    height: calc(100vh - 179px);
     width: 100%;
   }
   .sect .section-left-header {
@@ -128,6 +131,7 @@
   .contact-form {
     justify-content: flex-start;
     overflow: scroll;
+    border-radius: 0;
   }
   .contact-form-row input {
     width: 100%;
@@ -135,6 +139,7 @@
   .contact-form-row textarea {
     width: 100%;
   }
+
   .section-right-body {
     width: 100%;
     display: flex;

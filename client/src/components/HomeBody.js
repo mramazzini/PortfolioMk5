@@ -12,10 +12,12 @@ const HomeBody = () => {
   const [section, setSection] = useState("home");
   const [initialized, setInitialized] = useState(false);
   const [textAnimationFontSize, setTextAnimationFontSize] = useState("2rem");
+  const [position, setPosition] = useState({ x: 0, y: 0 });
   const toggleDarkMode = () => {
     console.log(section);
     if (!initialized) {
       setInitialized(true);
+
       return;
     }
     setDarkMode(!darkMode);
@@ -27,27 +29,32 @@ const HomeBody = () => {
     } else {
       setTextAnimationFontSize("1.5rem");
     }
-    setTimeout(() => {
-      setBodyActivated(true);
-    }, 2000);
   }, []);
+
+  useEffect(() => {
+    if (section !== "home") {
+      setBodyActivated(false);
+    } else {
+      setBodyActivated(true);
+    }
+  }, [section]);
 
   return (
     <div className={`home-body ${darkMode ? "dark" : ""}`}>
-      <div
-        className={`section-left ${darkMode ? "dark" : ""} ${
-          bodyActivated ? "section-left-adjusted" : " "
-        }`}
-      >
-        <div className={`section-left-header ${darkMode ? "dark" : ""}`}>
+      <div className={`section-left ${darkMode ? "dark" : ""} `}>
+        <div
+          className={`section-left-header ${darkMode ? "dark" : ""} ${
+            bodyActivated ? "" : "activated"
+          }`}
+        >
           <h1 style={{ fontSize: textAnimationFontSize }}>Hi, I'm</h1>
           <TypeAnimation
             sequence={[
               "Matteo Ramazzini",
               2000,
-              "a student.",
+              "a Full Stack developer.",
               2000,
-              "a developer.",
+              "a student.",
               2000,
               "a learner.",
 
@@ -63,21 +70,17 @@ const HomeBody = () => {
           />
         </div>
 
-        {bodyActivated ? (
-          <Nav
-            section={section}
-            setSection={setSection}
-            darkDiv={<DarkModeToggle toggleDarkMode={toggleDarkMode} />}
-            darkMode={darkMode}
-          />
-        ) : (
-          ""
-        )}
+        <Nav
+          section={section}
+          setSection={setSection}
+          darkDiv={<DarkModeToggle toggleDarkMode={toggleDarkMode} />}
+          darkMode={darkMode}
+        />
       </div>
-      {bodyActivated ? (
+      {!bodyActivated || section !== "home" ? (
         <div className={`section-right ${darkMode ? "dark" : ""} `}>
           {section === "home" ? (
-            <Home darkMode={darkMode} />
+            <div className="section-right body-hidden"></div>
           ) : section === "About" ? (
             <About darkMode={darkMode} />
           ) : section === "Projects" ? (
