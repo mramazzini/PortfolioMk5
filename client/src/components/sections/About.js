@@ -9,18 +9,26 @@ const About = ({ darkMode }) => {
       </div>
       <div className="current-positions">
         <div className="current-position">
+          <div className="company-logo" id="edx-logo" />
           <div className="current-position-header">
             <div className="current-position-title">Teaching Assistant</div>
-            <div className="current-position-company">Edx</div>
+            <div
+              className={`current-position-company ${darkMode ? "dark" : ""}`}
+            >
+              Edx
+            </div>
             <div className={`header-line ${darkMode ? "dark" : ""}`} />
           </div>
         </div>
         <div className="current-position">
+          <div className="company-logo" id="uh-logo" />
           <div className="current-position-header">
             <div className="current-position-title">
               Computer Science and Sales
             </div>
-            <div className="current-position-company">
+            <div
+              className={`current-position-company ${darkMode ? "dark" : ""}`}
+            >
               University of Houston
             </div>
             <div className={`header-line ${darkMode ? "dark" : ""}`} />
@@ -69,7 +77,7 @@ const About = ({ darkMode }) => {
       <div className="media-icons-container">
         <div className="icon-container  clickable">
           <div className="icon">
-            <div className={`hexagon ${darkMode ? "dark" : ""}`}>
+            <div className={`hexagon  ${darkMode ? "dark" : ""}`} id="github">
               <Link to="https://github.com/mramazzini" target="_blank">
                 <div className="icon-image " id="github" />
               </Link>
@@ -78,7 +86,7 @@ const About = ({ darkMode }) => {
         </div>
         <div className="icon-container clickable">
           <div className="icon">
-            <div className={`hexagon ${darkMode ? "dark" : ""}`}>
+            <div className={`hexagon  ${darkMode ? "dark" : ""}`} id="linkedin">
               <Link
                 to="https://www.linkedin.com/in/matteo-ramazzini/"
                 target="_blank"
@@ -90,7 +98,7 @@ const About = ({ darkMode }) => {
         </div>
         <div className="icon-container clickable">
           <div className="icon">
-            <div className={`hexagon ${darkMode ? "dark" : ""}`}>
+            <div className={`hexagon ${darkMode ? "dark" : ""}`} id="resume">
               <Link
                 to="https://docs.google.com/document/d/1c4Osj5DolhG_0aajPyQpNgGjOwkETryZPVIWtfE56f4/edit?usp=sharing "
                 target="_blank"

@@ -14,6 +14,8 @@ const HomeBody = () => {
   const [textAnimationFontSize, setTextAnimationFontSize] = useState("2rem");
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [loadingScreen, setLoadingScreen] = useState(true);
+  const [disengage, setDisengage] = useState(false);
+
   const toggleDarkMode = () => {
     console.log(section);
     if (!initialized) {
@@ -36,6 +38,16 @@ const HomeBody = () => {
     }
   }, []);
 
+  const returnToHome = () => {
+    setDisengage(true);
+    setTimeout(() => {
+      setSection("home");
+    }, 400);
+    setTimeout(() => {
+      setDisengage(false);
+    }, 1500);
+  };
+
   useEffect(() => {
     if (section !== "home") {
       setBodyActivated(false);
@@ -46,7 +58,17 @@ const HomeBody = () => {
 
   return !loadingScreen ? (
     <div className={`home-body ${darkMode ? "dark" : ""}`}>
-      <div className={`section-left ${darkMode ? "dark" : ""} `}>
+      {disengage ? (
+        <div className="disengage">
+          <div className="disengage-right" />
+          <div className="disengage-left" />
+        </div>
+      ) : null}
+      <div
+        className={`section-left ${darkMode ? "dark" : ""} ${
+          section === "Projects" ? "project-hidden" : ""
+        } `}
+      >
         <div
           className={`section-left-header ${darkMode ? "dark" : ""} ${
             bodyActivated ? "" : "activated"
@@ -57,7 +79,7 @@ const HomeBody = () => {
             sequence={[
               "Matteo Ramazzini",
               2000,
-              "a Full Stack developer.",
+              "a developer.",
               2000,
               "a student.",
               2000,
@@ -89,7 +111,7 @@ const HomeBody = () => {
           ) : section === "About" ? (
             <About darkMode={darkMode} />
           ) : section === "Projects" ? (
-            <Projects darkMode={darkMode} />
+            <Projects darkMode={darkMode} returnToHome={returnToHome} />
           ) : section === "Contact" ? (
             <Contact darkMode={darkMode} />
           ) : (

@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .toggle {
     width: 60px;
     height: 30px;
@@ -87,8 +87,16 @@
     justify-content: center;
     align-items: center;
     transition: height 0.5s ease;
-
+    overflow: visible;
     z-index: 2;
+  }
+  #edx-logo {
+    width: calc(10vh);
+    height: calc(10vh * 0.4034);
+  }
+  #uh-logo {
+    width: calc(10vh * 0.5234);
+    height: calc(10vh * 0.4234);
   }
   .section-left-body {
     height: auto;
@@ -105,6 +113,7 @@
   .section-right {
     height: calc(100vh - 179px);
     width: 100%;
+    padding-top: 10px;
   }
   .sect .section-left-header {
     height: auto;
@@ -132,9 +141,6 @@
     justify-content: flex-start;
     overflow: scroll;
     border-radius: 0;
-    animation-name: slide-in;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
   }
   .contact-form-row input {
     width: 100%;
@@ -147,14 +153,16 @@
   }
   .current-positions {
     height: auto;
+    flex-direction: column;
   }
+
   .icon-text {
     font-size: 0.8rem;
     margin-left: 10%;
     width: 60%;
   }
   .icon-text .bold {
-    font-size: 1rem;
+    font-size: 2rem;
   }
   .icon-container:hover {
     transform: none;
@@ -174,11 +182,11 @@
     margin-top: 10px;
   }
   .current-position {
-    width: 30%;
+    width: 100%;
     height: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    flex-direction: row-reverse;
   }
+
   .current-position-header {
     width: 100%;
     height: auto;
@@ -216,6 +224,12 @@
   }
   .contact .about {
     padding: 0;
+  }
+  .contact {
+    justify-content: flex-start !important;
+  }
+  .section-right {
+    transition: height 0.5s ease;
   }
   .section-right-body {
     width: 100%;

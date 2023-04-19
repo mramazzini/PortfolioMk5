@@ -5,6 +5,7 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Query {
     message(message: String!, sentBy: String!, contactInfo: String!): String!
+    discordStatus: String!
   }
   type Mutation {
     sendMessage(
