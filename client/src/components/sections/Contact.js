@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SEND_MESSAGE } from "../utils/mutations";
 const Contact = ({ darkMode }) => {
+  const [showResponse, setShowResponse] = useState(false);
+  const [responseText, setResponseText] = useState("");
   const [formState, setFormState] = useState({
     sentBy: "",
     contactInfo: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
   const [sendMessage] = useMutation(SEND_MESSAGE);
 
   const handleChange = (event) => {
@@ -18,20 +21,72 @@ const Contact = ({ darkMode }) => {
     });
     console.log(formState);
   };
+  useEffect(() => {
+    if (loading) {
+      setShowResponse(true);
+      setResponseText("Sending...");
+    }
+    setTimeout(() => {
+      if (!loading) return;
+      setResponseText("Something went wrong, please try again later.");
+      setLoading(false);
+    }, 10000);
+  }, [loading]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    sendMessage({
+    if (
+      formState.name === "" ||
+      formState.message === "" ||
+      formState.contact === ""
+    ) {
+      setShowResponse(true);
+      setResponseText("Please fill out all fields.");
+      return;
+    }
+    setLoading(true);
+
+    const response = await sendMessage({
       variables: {
         sentBy: formState.name,
         message: formState.message,
         contactInfo: formState.contact,
       },
+    }).then((res) => {
+      setLoading(false);
+      setShowResponse(true);
+      if (res.data.sendMessage === "Email sent") {
+        setResponseText(
+          "Thank you for your message! \n I will get back to you as soon as possible."
+        );
+      } else {
+        setResponseText("Something went wrong, please try again later.");
+      }
+      setFormState({
+        sentBy: "",
+        contactInfo: "",
+        message: "",
+      });
     });
   };
 
   return (
     <div className={`section-right-body ${darkMode ? "dark" : ""} contact`}>
+      {showResponse ? (
+        <div className={`response ${darkMode ? "dark" : ""}`}>
+          <div className="response-text">
+            <h1>{responseText}</h1>
+          </div>
+          <button
+            className="response-button"
+            onClick={() => setShowResponse(false)}
+          >
+            Close
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
       <div className={`section-header ${darkMode ? "dark" : ""}`}>
         <div className="header-text">Contact</div>
         <div className={`header-line ${darkMode ? "dark" : ""}`} />
@@ -67,12 +122,19 @@ const Contact = ({ darkMode }) => {
             />
           </div>
           <div className="contact-form-row">
-            <button
-              className={`nav-button submit ${darkMode ? "dark" : ""}`}
-              type="submit"
-            >
-              Send
-            </button>
+            {loading ? (
+              <div className="loading">
+                <h2 className="loading-text">Sending...</h2>
+                <div className="loading-spinner" />
+              </div>
+            ) : (
+              <button
+                className={`nav-button submit ${darkMode ? "dark" : ""}`}
+                type="submit"
+              >
+                Send
+              </button>
+            )}
           </div>
           <div className={`section-right-header ${darkMode ? "dark" : ""}`}>
             <h1>I'll get back to you soon!</h1>
