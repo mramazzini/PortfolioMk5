@@ -14,7 +14,7 @@ let httpLink;
 // Construct our main GraphQL API endpoint
 if (process.env.NODE_ENV === "production") {
   httpLink = createHttpLink({
-    uri: "/graphql",
+    uri: "https://matteo-ramazzini.herokuapp.com/graphql",
     //uri: "/graphql",
   });
 } else {
