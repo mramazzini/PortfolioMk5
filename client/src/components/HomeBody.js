@@ -125,11 +125,12 @@ const HomeBody = () => {
           ) : section === "About" ? (
             <About darkMode={darkMode} />
           ) : section === "Projects" ? (
-            <Projects
-              darkMode={darkMode}
-              returnToHome={returnToHome}
-              open={goToProjects}
-            />
+            // <Projects
+            //   darkMode={darkMode}
+            //   returnToHome={returnToHome}
+            //   open={goToProjects}
+            // />
+            <h1>This site is under construction!</h1>
           ) : section === "Contact" ? (
             <Contact darkMode={darkMode} />
           ) : (
