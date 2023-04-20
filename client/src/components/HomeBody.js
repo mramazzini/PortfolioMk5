@@ -48,6 +48,15 @@ const HomeBody = () => {
     }, 1500);
   };
 
+  const goToProjects = () => {
+    setDisengage(true);
+    setTimeout(() => {
+      setSection("Projects");
+    }, 400);
+    setTimeout(() => {
+      setDisengage(false);
+    }, 1500);
+  };
   useEffect(() => {
     if (section !== "home") {
       setBodyActivated(false);
@@ -60,6 +69,7 @@ const HomeBody = () => {
     <div className={`home-body ${darkMode ? "dark" : ""}`}>
       {disengage ? (
         <div className="disengage">
+          <div className="disengage-back" />
           <div className="disengage-right" />
           <div className="disengage-left" />
         </div>
@@ -105,13 +115,21 @@ const HomeBody = () => {
         />
       </div>
       {!bodyActivated || section !== "home" ? (
-        <div className={`section-right ${darkMode ? "dark" : ""} `}>
+        <div
+          className={`section-right ${darkMode ? "dark" : ""} ${
+            section === "Projects" ? "section-right-projects" : ""
+          }`}
+        >
           {section === "home" ? (
             <div className="section-right body-hidden"></div>
           ) : section === "About" ? (
             <About darkMode={darkMode} />
           ) : section === "Projects" ? (
-            <Projects darkMode={darkMode} returnToHome={returnToHome} />
+            <Projects
+              darkMode={darkMode}
+              returnToHome={returnToHome}
+              open={goToProjects}
+            />
           ) : section === "Contact" ? (
             <Contact darkMode={darkMode} />
           ) : (

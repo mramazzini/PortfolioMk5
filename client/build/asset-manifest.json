@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.291c9e15.css",
+    "main.js": "/static/js/main.8e244a6d.js",
+    "static/media/uhlogo.webp": "/static/media/uhlogo.b1a2104301745e78ff73.webp",
+    "static/media/bulb.png": "/static/media/bulb.5d6053bbe1cfcbe00b5e.png",
+    "static/media/edx.webp": "/static/media/edx.dde1b9d357ca39208f86.webp",
+    "index.html": "/index.html",
+    "main.291c9e15.css.map": "/static/css/main.291c9e15.css.map",
+    "main.8e244a6d.js.map": "/static/js/main.8e244a6d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.291c9e15.css",
+    "static/js/main.8e244a6d.js"
+  ]
+}
