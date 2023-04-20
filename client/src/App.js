@@ -14,7 +14,7 @@ let httpLink;
 // Construct our main GraphQL API endpoint
 if (process.env.NODE_ENV === "production") {
   httpLink = createHttpLink({
-    uri: "subtle-nasturtium-7429f3.netlify.app/graphql",
+    uri: "https://subtle-nasturtium-7429f3.netlify.app/graphql",
     //uri: "/graphql",
   });
 } else {
