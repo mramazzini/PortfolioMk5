@@ -100,7 +100,7 @@ const About = ({ darkMode }) => {
           <div className="icon">
             <div className={`hexagon ${darkMode ? "dark" : ""}`} id="resume">
               <Link
-                to="https://docs.google.com/document/d/1c4Osj5DolhG_0aajPyQpNgGjOwkETryZPVIWtfE56f4/edit?usp=sharing "
+                to="https://drive.google.com/file/d/1i4Qslyx4Bm4FqQqbvqfp8hEe2yp2uA3H/view?usp=sharing"
                 target="_blank"
               >
                 <div className="icon-image " id="resume" />
