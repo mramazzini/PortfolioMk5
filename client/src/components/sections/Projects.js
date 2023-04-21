@@ -45,7 +45,7 @@ const Projects = ({ darkMode, returnToHome, open }) => {
       </div> */}
       <div className="projects-container">
         <Link
-          to="https://github.com/mramazzini/edu-site"
+          to="https://github.com/mramazzini/PortfolioMk5"
           target="_blank"
           className={`card-container noselect ${activeCard[0] ? "active" : ""}`}
         >
@@ -135,7 +135,7 @@ const Projects = ({ darkMode, returnToHome, open }) => {
           </div>
         </Link>
         <Link
-          to="https://github.com/mramazzini/edu-site"
+          to="https://github.com/mramazzini"
           target="_blank"
           className={`card-container noselect ${activeCard[0] ? "active" : ""}`}
         >
@@ -168,9 +168,9 @@ const Projects = ({ darkMode, returnToHome, open }) => {
 
             <div id="card">
               <div className="card-background"> </div>
-              <div id="prompt">Coming Soon!</div>
+              <div id="prompt">Coming Soon! </div>
               <div className="title">
-                More will come with time
+                Check out my github!
                 <br />
                 :)
                 <br />
