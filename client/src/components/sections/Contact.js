@@ -101,15 +101,22 @@ const Contact = ({ darkMode }) => {
           </div>
           <div className="contact-form-row">
             <label htmlFor="name">Name</label>
-            <input type="text" name="name" id="name" onChange={handleChange} />
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder=""
+              onChange={handleChange}
+            />
           </div>
           <div className="contact-form-row">
-            <label htmlFor="contact">How should I contact you?</label>
+            <label htmlFor="contact">Contact</label>
             <input
               type="text"
               name="contact"
               id="contact"
               onChange={handleChange}
+              placeholder="Email or Phone Number"
             />
           </div>
           <div className="contact-form-row">
@@ -119,6 +126,7 @@ const Contact = ({ darkMode }) => {
               id="message"
               rows="5"
               onChange={handleChange}
+              placeholder="Type your message here..."
             />
           </div>
           <div className="contact-form-row">
@@ -135,9 +143,6 @@ const Contact = ({ darkMode }) => {
                 Send
               </button>
             )}
-          </div>
-          <div className={`section-right-header ${darkMode ? "dark" : ""}`}>
-            <h1>I'll get back to you soon!</h1>
           </div>
         </form>
       </div>

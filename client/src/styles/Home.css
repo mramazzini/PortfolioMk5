@@ -951,15 +951,15 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  text-align: center;
+  margin-top: 1em;
 }
 .contact-form-row.dark {
   color: var(--whiteColor);
 }
-.contact-form-row * {
-  margin: 0.5em;
-}
+
 .contact-form-row input {
-  width: 20em;
+  width: 60%;
   height: 2.5em;
   border: none;
   border-radius: 0.625em;
@@ -977,7 +977,7 @@
   backdrop-filter: blur(10px);
 }
 .contact-form-row textarea {
-  width: 20em;
+  width: 60%;
   height: 10em;
   border: none;
   border-radius: 0.625em;
@@ -996,8 +996,15 @@
 }
 
 .contact-form-row label {
+  height: 100%;
   font-size: 1.5rem;
   font-weight: bold;
+  width: 20%;
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .contact-form-row.dark label {
   color: var(--whiteColor) !important;

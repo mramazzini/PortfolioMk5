@@ -85,7 +85,7 @@ const HomeBody = () => {
             bodyActivated ? "" : "activated"
           }`}
         >
-          <h1 style={{ fontSize: textAnimationFontSize }}>Hi, I'm</h1>
+          <span style={{ fontSize: textAnimationFontSize }}>Hi, I'm</span>
           <TypeAnimation
             sequence={[
               "Matteo Ramazzini",
@@ -104,6 +104,7 @@ const HomeBody = () => {
             style={{
               textDecoration: "none",
               fontSize: "2.5em",
+              fontWeight: "bolder",
             }}
           />
         </div>
