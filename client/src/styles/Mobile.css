@@ -186,7 +186,9 @@
     height: auto;
     flex-direction: row-reverse;
   }
-
+  .projects {
+    overflow: hidden;
+  }
   .current-position-header {
     width: 100%;
     height: auto;
