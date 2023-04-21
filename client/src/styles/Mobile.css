@@ -329,6 +329,9 @@
     justify-content: flex-start;
     align-items: center;
   }
+  .projects-header {
+    display: none;
+  }
   #card {
     width: 100%;
     height: 100%;

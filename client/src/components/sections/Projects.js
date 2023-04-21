@@ -38,6 +38,9 @@ const Projects = ({ darkMode, returnToHome, open }) => {
         deactive ? "" : "deactive"
       }`}
     >
+      <div className="projects-header">
+        Hover over a project to learn more! <br /> Click to go to the link!
+      </div>
       <Stars />
       {/* <div className={`section-header ${darkMode ? "dark" : ""}`}>
         <div className="header-text">What am I working on?</div>
