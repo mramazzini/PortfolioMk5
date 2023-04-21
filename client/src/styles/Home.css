@@ -433,12 +433,15 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: var(--blackColor);
+  background-color: var(--whiteColor);
   position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
   transition: all 0.5s ease-in-out;
+}
+.loading-screen.dark {
+  background-color: var(--blackColor);
 }
 
 .icon-text {
@@ -552,8 +555,7 @@
   height: 100vh;
 
   z-index: 100;
-  padding-top: 5vh;
-  padding-bottom: 10vh;
+
   background-color: var(--blackColor);
 
   transition: all 0.5s ease-in-out;
@@ -565,16 +567,18 @@
 .project-hidden * {
   display: none;
 }
-
-.disengage-back {
-  width: 100vw;
-  background-color: var(--blackColor);
+.disengage .disengage-back {
   height: 100vh;
   position: fixed;
   z-index: 199;
   top: 0;
   left: 0;
-  animation: dissapear-disengage 1s ease-in-out forwards;
+  animation: disappear-disengage 1s ease-in-out forwards;
+  width: 100vw;
+  background-color: var(--whiteColor);
+}
+.disengage.dark .disengage-back {
+  background-color: var(--blackColor);
 }
 .return-home-button {
   position: fixed;
@@ -591,12 +595,97 @@
   animation: slide-in 0.5s ease-in-out forwards;
 }
 .projects-container {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  width: calc(95vw - 50vh);
   height: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  transform: rotate(0deg);
+}
+.orbit-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(95vw - 50vh);
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  transform: rotate(0deg);
+  z-index: -1;
+}
+.orbit-box {
+  width: 15vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  transform: rotate(0deg);
+  z-index: -1;
+}
+#orbit-1 {
+  min-width: calc(400vh + 5vw);
+  min-height: calc(400vh + 5vw);
+  right: calc(-200vh - 2.5vw);
+  position: relative;
+  border-radius: 50%;
+  border: aliceblue 1px solid;
+  z-index: -2;
+}
+#orbit-2 {
+  min-width: calc(300vh + 5vw);
+  min-height: calc(300vh + 5vw);
+  right: calc(-150vh - 2.5vw);
+  position: relative;
+  border-radius: 50%;
+  border: aliceblue 1px solid;
+  z-index: -2;
+}
+#orbit-3 {
+  min-width: calc(200vh + 5vw);
+  min-height: calc(200vh + 5vw);
+  right: calc(-100vh - 2.5vw);
+  position: relative;
+  border-radius: 50%;
+  border: aliceblue 1px solid;
+  z-index: -2;
+}
+.planet-backdrop {
+  position: absolute;
+  top: 0vh;
+  left: 0vh;
+  width: 100vh;
+  height: 100vh;
+  background-color: var(--blackColor);
+  border-radius: 50%;
+  z-index: -2;
+  transition: all 0.5s ease-in-out;
+}
+.card-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blackColor);
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+}
+#tsparticles {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -10000000;
 }
 .project-text {
   font-size: 2rem;
@@ -607,12 +696,9 @@
   color: var(--whiteColor);
 }
 .planet {
-  position: absolute;
-  top: 30vh;
-  width: 95vw;
-  height: 95vw;
-  min-width: 95vw;
-  min-height: 95vw;
+  width: 100%;
+  height: 100%;
+
   border-radius: 50%;
   box-shadow: inset 0 0 50px #fff, inset 20px 0 80px var(--greenColorNormal),
     inset -20px 0 80px var(--blueColor),
@@ -621,6 +707,19 @@
     -10px 0 80px var(--greenColorNormal), 10px 0 80px var(--blueColor);
   animation: spin-wobble 2s linear infinite;
   z-index: -1;
+  transition: all 0.5s ease-in-out;
+  background: rgb(0, 0, 0, 0);
+}
+.planet:hover {
+  opacity: 1;
+
+  transition: all 0.5s ease-in-out;
+  background: linear-gradient(
+    45deg,
+    var(--greenColorNormal),
+    var(--blueColor),
+    var(--greenColorNormal)
+  );
 }
 @keyframes spin-wobble {
   0% {
@@ -645,7 +744,7 @@
     transform: rotate(360deg);
   }
 }
-@keyframes dissapear-disengage {
+@keyframes disappear-disengage {
   0% {
     opacity: 1;
   }
@@ -655,37 +754,60 @@
   51% {
     opacity: 0;
   }
+  80% {
+    opacity: 0;
+  }
   100% {
     opacity: 0;
   }
 }
-.disengage-right {
+.disengage .disengage-right {
   width: 50vw;
   height: 100vh;
   position: fixed;
   z-index: 200;
   top: 0;
   left: 50vw;
-  background-color: var(--blackColor);
+  background-color: var(--whiteColor);
   transition: all 0.5s ease-in-out;
-  border-left: 1px solid var(--whiteColor);
+  border-left: 1px solid var(--blackColor);
   animation: disengage-right 1.5s ease-in-out forwards;
+}
+.disengage.dark .disengage-right {
+  background-color: var(--blackColor);
+  border-left: 1px solid var(--whiteColor);
 }
 .deactive {
   display: none;
 }
 
-.disengage-left {
+.disengage.dark .disengage-left {
+  background-color: var(--blackColor);
+  border-right: 1px solid var(--whiteColor);
+}
+.disengage .disengage-left {
   width: 50vw;
   height: 100vh;
   position: fixed;
   z-index: 200;
   top: 0;
   left: 0;
-  background-color: var(--blackColor);
+  background-color: var(--whiteColor);
   transition: all 0.5s ease-in-out;
-  border-right: 1px solid var(--whiteColor);
+  border-right: 1px solid var(--blackColor);
   animation: disengage-left 1.5s ease-in-out forwards;
+}
+.disengage {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+
+  transition: all 0.5s ease-in-out;
+
+  animation: disengage 1.5s ease-in-out forwards;
 }
 @keyframes disengage-right {
   0% {
@@ -715,20 +837,7 @@
     left: -50vw;
   }
 }
-@keyframes disengage {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+
 .project-container {
   display: flex;
   flex-direction: column;
@@ -949,6 +1058,32 @@
   font-size: 5rem;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
+}
+.nav-button.animate {
+  animation-name: animate-button-color;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+}
+
+@keyframes animate-button-color {
+  0% {
+    background: var(--whiteColor);
+    color: var(--blackColor);
+  }
+  20% {
+    background: var(--blackColor);
+    color: var(--whiteColor);
+  }
+  60% {
+    background: var(--blackColor);
+    color: var(--whiteColor);
+  }
+  100% {
+    background: var(--whiteColor);
+    color: var(--blackColor);
+  }
 }
 .home-header-main.dark {
   color: var(--whiteColor);
@@ -1603,33 +1738,83 @@ input:checked + .toggle .star--6 {
   }
 }
 /*works janky on mobile :<*/
-.container {
+.card-container {
+  width: 15vw;
+  height: 15vw;
   position: relative;
-  width: 190px;
-  height: 254px;
+  border-radius: 20px;
+
+  transition: 200ms;
+
+  animation-delay: 0.5s;
+}
+.card-container.active {
+  animation-play-state: paused;
+}
+.planet-text {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  z-index: 10;
+  pointer-events: none;
+}
+.card-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 10;
   transition: 200ms;
 }
-
-.container:active {
-  width: 180px;
-  height: 245px;
+.card-link:hover {
+  color: #000;
 }
 
+.card-background {
+  animation: spin-wobble 1s linear infinite;
+  box-shadow: inset 0 0 20px #fff, inset 10px 0 40px var(--greenColorNormal),
+    inset -10px 0 40px var(--blueColor),
+    inset 10px 0 150px var(--greenColorNormal),
+    inset -10px 0 150px var(--blueColor), 0 0 25px #fff,
+    -5px 0 40px var(--greenColorNormal), 5px 0 40px var(--blueColor);
+
+  background-size: 400% 400%;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 50%;
+  transition: 200ms;
+}
 #card {
   position: absolute;
   inset: 0;
   z-index: 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 50%;
   transition: 700ms;
-  background: linear-gradient(
-    43deg,
-    rgb(65, 88, 208) 0%,
-    rgb(200, 80, 192) 46%,
-    rgb(255, 204, 112) 100%
-  );
+}
+@keyframes orbit {
+  0% {
+    transform: translateX(-10vw) translateY(-50vw);
+  }
+  60% {
+    transform: translateX(-15vw) translateY(calc(254px));
+  }
+
+  100% {
+    transform: translateX(-10vw) translateY(50vw);
+  }
 }
 
 .subtitle {
@@ -1638,7 +1823,23 @@ input:checked + .toggle .star--6 {
   text-align: center;
   width: 100%;
 }
+.planet-btn {
+  position: absolute;
+  right: -60vh;
+  top: 0;
+  background: none;
+  width: 100vh;
+  height: 100vh;
+  border-radius: 50%;
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--whiteColor);
 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 10;
+}
 .title {
   opacity: 0;
   transition-duration: 300ms;
@@ -1649,6 +1850,7 @@ input:checked + .toggle .star--6 {
   font-weight: bold;
   text-align: center;
   margin: 10px;
+  color: var(--whiteColor);
 }
 
 .tracker:hover ~ #card .title {
@@ -1656,14 +1858,12 @@ input:checked + .toggle .star--6 {
 }
 
 #prompt {
-  bottom: 8px;
-  left: 12px;
   z-index: 20;
   font-size: 20px;
   font-weight: bold;
   transition: 300ms ease-in-out-out;
-  position: absolute;
-  max-width: 110px;
+
+  text-align: center;
   color: rgb(255, 255, 255);
 }
 
@@ -1687,7 +1887,7 @@ input:checked + .toggle .star--6 {
   filter: brightness(1.1);
 }
 
-.container:hover #card::before {
+.card-container:hover #card::before {
   transition: 200ms;
   content: "";
   opacity: 80%;
@@ -1698,10 +1898,12 @@ input:checked + .toggle .star--6 {
   inset: 0;
   z-index: 200;
   position: absolute;
+  border-radius: 50%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
+
   grid-template-areas:
     "tr-1 tr-2 tr-3 tr-4 tr-5"
     "tr-6 tr-7 tr-8 tr-9 tr-10"
@@ -1709,15 +1911,17 @@ input:checked + .toggle .star--6 {
     "tr-16 tr-17 tr-18 tr-19 tr-20"
     "tr-21 tr-22 tr-23 tr-24 tr-25";
 }
+.canvas.active {
+  animation-play-state: paused;
+}
 
 #card::before {
   content: "";
-  background: linear-gradient(
-    43deg,
-    rgb(65, 88, 208) 0%,
-    rgb(200, 80, 192) 46%,
-    rgb(255, 204, 112) 100%
-  );
+  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px var(--greenColorNormal),
+    inset -20px 0 80px var(--blueColor),
+    inset 20px 0 300px var(--greenColorNormal),
+    inset -20px 0 300px var(--blueColor), 0 0 50px #fff,
+    -10px 0 80px var(--greenColorNormal), 10px 0 80px var(--blueColor);
   filter: blur(2rem);
   opacity: 30%;
   width: 100%;

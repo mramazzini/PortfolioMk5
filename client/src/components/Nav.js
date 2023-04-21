@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Nav = ({ section, setSection, darkDiv, darkMode }) => {
+  const [animateButtons, setAnimateButtons] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimateButtons(false);
+    }, 3000);
+  }, []);
+
   const changeSection = (section) => {
     return () => {
       setSection(section);
@@ -24,16 +32,16 @@ const Nav = ({ section, setSection, darkDiv, darkMode }) => {
           <button
             className={`nav-button ${darkMode ? "dark" : ""} ${
               section === "About" ? "active" : ""
-            }`}
+            } ${animateButtons ? "animate" : ""}`}
             onClick={changeSection("About")}
           >
             About
           </button>
-          {darkDiv}
+
           <button
             className={`nav-button ${darkMode ? "dark" : ""} ${
               section === "Projects" ? "active" : ""
-            }  `}
+            }  ${animateButtons ? "animate" : ""}`}
             onClick={changeSection("Projects")}
           >
             Projects
@@ -43,7 +51,7 @@ const Nav = ({ section, setSection, darkDiv, darkMode }) => {
           <button
             className={`nav-button ${darkMode ? "dark" : ""} ${
               section === "Contact" ? "active" : ""
-            } `}
+            } ${animateButtons ? "animate" : ""}`}
             onClick={changeSection("Contact")}
           >
             Contact

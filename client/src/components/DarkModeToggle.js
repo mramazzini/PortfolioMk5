@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const DarkModeToggle = ({ toggleDarkMode }) => {
-  const [isChecked, setIsChecked] = useState(true);
+  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     const body = document.body;

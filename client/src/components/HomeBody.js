@@ -3,6 +3,7 @@ import { TypeAnimation } from "react-type-animation";
 import Nav from "./Nav";
 import DarkModeToggle from "./DarkModeToggle";
 import Home from "./sections/Home";
+import Stars from "./Stars.js";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
@@ -68,7 +69,7 @@ const HomeBody = () => {
   return !loadingScreen ? (
     <div className={`home-body ${darkMode ? "dark" : ""}`}>
       {disengage ? (
-        <div className="disengage">
+        <div className={`disengage ${darkMode ? "dark" : ""}`}>
           <div className="disengage-back" />
           <div className="disengage-right" />
           <div className="disengage-left" />
@@ -125,13 +126,13 @@ const HomeBody = () => {
           ) : section === "About" ? (
             <About darkMode={darkMode} />
           ) : section === "Projects" ? (
-            // <Projects
-            //   darkMode={darkMode}
-            //   returnToHome={returnToHome}
-            //   open={goToProjects}
-            // />
-            <h1>This site is under construction!</h1>
-          ) : section === "Contact" ? (
+            <Projects
+              darkMode={darkMode}
+              returnToHome={returnToHome}
+              open={goToProjects}
+            />
+          ) : //<h1>This site is under construction!</h1>
+          section === "Contact" ? (
             <Contact darkMode={darkMode} />
           ) : (
             <Home />
@@ -142,7 +143,7 @@ const HomeBody = () => {
       )}
     </div>
   ) : (
-    <div className="loading-screen">
+    <div className={`loading-screen ${darkMode ? "dark" : ""}`}>
       <div
         aria-label="Orange and tan hamster running in a metal wheel"
         role="img"
