@@ -105,7 +105,7 @@ const Contact = ({ darkMode }) => {
               type="text"
               name="name"
               id="name"
-              placeholder=""
+              placeholder="Name "
               onChange={handleChange}
             />
           </div>

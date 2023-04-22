@@ -7,6 +7,7 @@ import Stars from "./Stars.js";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
+import { Link } from "react-router-dom";
 const HomeBody = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [bodyActivated, setBodyActivated] = useState(false);
@@ -86,6 +87,7 @@ const HomeBody = () => {
           }`}
         >
           <span style={{ fontSize: textAnimationFontSize }}>Hi, I'm</span>
+
           <TypeAnimation
             sequence={[
               "Matteo Ramazzini",
@@ -115,6 +117,48 @@ const HomeBody = () => {
           darkDiv={<DarkModeToggle toggleDarkMode={toggleDarkMode} />}
           darkMode={darkMode}
         />
+        <div
+          className={`media-icons-container ${
+            bodyActivated ? "" : "mobile-hide"
+          }`}
+        >
+          <div className="icon-container  clickable">
+            <div className="icon">
+              <div className={`hexagon  ${darkMode ? "dark" : ""}`} id="github">
+                <Link to="https://github.com/mramazzini" target="_blank">
+                  <div className="icon-image " id="github" />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="icon-container clickable">
+            <div className="icon">
+              <div
+                className={`hexagon  ${darkMode ? "dark" : ""}`}
+                id="linkedin"
+              >
+                <Link
+                  to="https://www.linkedin.com/in/matteo-ramazzini/"
+                  target="_blank"
+                >
+                  <div className="icon-image " id="linkedin" />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="icon-container clickable">
+            <div className="icon">
+              <div className={`hexagon ${darkMode ? "dark" : ""}`} id="resume">
+                <Link
+                  to="https://drive.google.com/file/d/1i4Qslyx4Bm4FqQqbvqfp8hEe2yp2uA3H/view?usp=sharing"
+                  target="_blank"
+                >
+                  <div className="icon-image " id="resume" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       {!bodyActivated || section !== "home" ? (
         <div

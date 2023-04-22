@@ -38,75 +38,43 @@ const About = ({ darkMode }) => {
 
       <div className="icons-container">
         <div className={`icon-container ${darkMode ? "dark" : ""}`}>
-          <div className="icon">
-            <div className={`hexagon ${darkMode ? "dark" : ""}`}>
-              <div className="icon-image" id="speedometer" />
+          <div className="bold"> Fast</div>
+          <div className="hexagon-container">
+            <div className="hexagon-background">
+              <div className="icon">
+                <div className={`hexagon ${darkMode ? "dark" : ""}`}>
+                  <div className="icon-image" id="speedometer" />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="icon-text">
-            <div className="bold"> Fast</div>
-
-            <div className="normal">Load times and lag free interaction</div>
-          </div>
+          <div className="normal">Load times and lag free interaction</div>
         </div>
         <div className={`icon-container ${darkMode ? "dark" : ""}`}>
-          <div className="icon">
-            <div className={`hexagon ${darkMode ? "dark" : ""}`}>
-              <div className="icon-image" id="responsive" />
+          <div className="bold"> Responsive</div>
+          <div className="hexagon-container">
+            <div className="hexagon-background">
+              <div className="icon">
+                <div className={`hexagon ${darkMode ? "dark" : ""}`}>
+                  <div className="icon-image" id="responsive" />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="icon-text">
-            <div className="bold"> Responsive</div>
-
-            <div className="normal">Design works on any device</div>
-          </div>
+          <div className="normal">Design works on any device</div>
         </div>
         <div className={`icon-container ${darkMode ? "dark" : ""}`}>
-          <div className="icon">
-            <div className={`hexagon ${darkMode ? "dark" : ""}`}>
-              <div className="icon-image" id="bulb" />
+          <div className="bold"> Intuitive</div>
+          <div className="hexagon-container">
+            <div className="hexagon-background">
+              <div className="icon">
+                <div className={`hexagon ${darkMode ? "dark" : ""}`}>
+                  <div className="icon-image" id="bulb" />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="icon-text">
-            <div className="bold"> Intuitive</div>
-
-            <div className="normal">UX/UI design that focuses on the user</div>
-          </div>
-        </div>
-      </div>
-      <div className="media-icons-container">
-        <div className="icon-container  clickable">
-          <div className="icon">
-            <div className={`hexagon  ${darkMode ? "dark" : ""}`} id="github">
-              <Link to="https://github.com/mramazzini" target="_blank">
-                <div className="icon-image " id="github" />
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="icon-container clickable">
-          <div className="icon">
-            <div className={`hexagon  ${darkMode ? "dark" : ""}`} id="linkedin">
-              <Link
-                to="https://www.linkedin.com/in/matteo-ramazzini/"
-                target="_blank"
-              >
-                <div className="icon-image " id="linkedin" />
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="icon-container clickable">
-          <div className="icon">
-            <div className={`hexagon ${darkMode ? "dark" : ""}`} id="resume">
-              <Link
-                to="https://drive.google.com/file/d/1i4Qslyx4Bm4FqQqbvqfp8hEe2yp2uA3H/view?usp=sharing"
-                target="_blank"
-              >
-                <div className="icon-image " id="resume" />
-              </Link>
-            </div>
-          </div>
+          <div className="normal">UX/UI design that focuses on the user</div>
         </div>
       </div>
     </div>
