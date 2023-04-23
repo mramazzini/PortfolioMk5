@@ -129,7 +129,7 @@ const Contact = ({ darkMode }) => {
               placeholder="Type your message here..."
             />
           </div>
-          <div className="contact-form-row">
+          <div className="contact-form-row button">
             {loading ? (
               <div className="loading">
                 <h2 className="loading-text">Sending...</h2>

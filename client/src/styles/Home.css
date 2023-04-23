@@ -380,7 +380,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 100%;
 
   margin-top: 2rem;
@@ -455,6 +455,13 @@
 }
 .icon-container.dark {
   color: var(--whiteColor);
+}
+.media-icons-container .icon-container {
+  width: 20%;
+}
+.contact-form-row.button {
+  justify-content: flex-end;
+  width: 80%;
 }
 .normal {
   font-weight: 400;
@@ -1036,7 +1043,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 0.5em;
 }
 .contact-form-row.dark label {
   color: var(--whiteColor) !important;
