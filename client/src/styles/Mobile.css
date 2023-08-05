@@ -186,6 +186,15 @@
   .icon-container:hover {
     transform: none;
   }
+  .response-text {
+    font-size: 0.5em;
+  }
+  .response-button {
+    width: 20vw;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+  }
   .icons-container {
     width: 90%;
     justify-content: flex-start;
