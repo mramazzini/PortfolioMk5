@@ -188,6 +188,9 @@
   }
   .response-text {
     font-size: 0.5em;
+    text-align: center;
+    margin-left: 10vw;
+    margin-right: 10vw;
   }
   .response-button {
     width: 20vw;
