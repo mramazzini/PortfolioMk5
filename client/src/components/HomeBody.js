@@ -71,9 +71,9 @@ const HomeBody = () => {
     <div className={`home-body ${darkMode ? "dark" : ""}`}>
       {disengage ? (
         <div className={`disengage ${darkMode ? "dark" : ""}`}>
-          <div className="disengage-back" />
-          <div className="disengage-right" />
-          <div className="disengage-left" />
+          <div className='disengage-back' />
+          <div className='disengage-right' />
+          <div className='disengage-left' />
         </div>
       ) : null}
       <div
@@ -101,7 +101,7 @@ const HomeBody = () => {
               2000,
               "Matteo Ramazzini",
             ]}
-            wrapper="div"
+            wrapper='div'
             cursor={false}
             style={{
               textDecoration: "none",
@@ -122,38 +122,38 @@ const HomeBody = () => {
             bodyActivated ? "" : "mobile-hide"
           }`}
         >
-          <div className="icon-container  clickable">
-            <div className="icon">
-              <div className={`hexagon  ${darkMode ? "dark" : ""}`} id="github">
-                <Link to="https://github.com/mramazzini" target="_blank">
-                  <div className="icon-image " id="github" />
+          <div className='icon-container  clickable'>
+            <div className='icon'>
+              <div className={`hexagon  ${darkMode ? "dark" : ""}`} id='github'>
+                <Link to='https://github.com/mramazzini' target='_blank'>
+                  <div className='icon-image ' id='github' />
                 </Link>
               </div>
             </div>
           </div>
-          <div className="icon-container clickable">
-            <div className="icon">
+          <div className='icon-container clickable'>
+            <div className='icon'>
               <div
                 className={`hexagon  ${darkMode ? "dark" : ""}`}
-                id="linkedin"
+                id='linkedin'
               >
                 <Link
-                  to="https://www.linkedin.com/in/matteo-ramazzini/"
-                  target="_blank"
+                  to='https://www.linkedin.com/in/matteo-ramazzini/'
+                  target='_blank'
                 >
-                  <div className="icon-image " id="linkedin" />
+                  <div className='icon-image ' id='linkedin' />
                 </Link>
               </div>
             </div>
           </div>
-          <div className="icon-container clickable">
-            <div className="icon">
-              <div className={`hexagon ${darkMode ? "dark" : ""}`} id="resume">
+          <div className='icon-container clickable'>
+            <div className='icon'>
+              <div className={`hexagon ${darkMode ? "dark" : ""}`} id='resume'>
                 <Link
-                  to="https://drive.google.com/file/d/1i4Qslyx4Bm4FqQqbvqfp8hEe2yp2uA3H/view?usp=sharing"
-                  target="_blank"
+                  to='https://drive.google.com/file/d/1g6_XrtjPJX9k0N6Ab3NX4WEXXVnNJ2qo/view?usp=sharing'
+                  target='_blank'
                 >
-                  <div className="icon-image " id="resume" />
+                  <div className='icon-image ' id='resume' />
                 </Link>
               </div>
             </div>
@@ -167,7 +167,7 @@ const HomeBody = () => {
           }`}
         >
           {section === "home" ? (
-            <div className="section-right body-hidden"></div>
+            <div className='section-right body-hidden'></div>
           ) : section === "About" ? (
             <About darkMode={darkMode} />
           ) : section === "Projects" ? (
@@ -184,32 +184,32 @@ const HomeBody = () => {
           )}
         </div>
       ) : (
-        <div className="section-right body-hidden"></div>
+        <div className='section-right body-hidden'></div>
       )}
     </div>
   ) : (
     <div className={`loading-screen ${darkMode ? "dark" : ""}`}>
       <div
-        aria-label="Orange and tan hamster running in a metal wheel"
-        role="img"
-        className="wheel-and-hamster"
+        aria-label='Orange and tan hamster running in a metal wheel'
+        role='img'
+        className='wheel-and-hamster'
       >
-        <div className="wheel"></div>
-        <div className="hamster">
-          <div className="hamster__body">
-            <div className="hamster__head">
-              <div className="hamster__ear"></div>
-              <div className="hamster__eye"></div>
-              <div className="hamster__nose"></div>
+        <div className='wheel'></div>
+        <div className='hamster'>
+          <div className='hamster__body'>
+            <div className='hamster__head'>
+              <div className='hamster__ear'></div>
+              <div className='hamster__eye'></div>
+              <div className='hamster__nose'></div>
             </div>
-            <div className="hamster__limb hamster__limb--fr"></div>
-            <div className="hamster__limb hamster__limb--fl"></div>
-            <div className="hamster__limb hamster__limb--br"></div>
-            <div className="hamster__limb hamster__limb--bl"></div>
-            <div className="hamster__tail"></div>
+            <div className='hamster__limb hamster__limb--fr'></div>
+            <div className='hamster__limb hamster__limb--fl'></div>
+            <div className='hamster__limb hamster__limb--br'></div>
+            <div className='hamster__limb hamster__limb--bl'></div>
+            <div className='hamster__tail'></div>
           </div>
         </div>
-        <div className="spoke"></div>
+        <div className='spoke'></div>
       </div>
     </div>
   );
