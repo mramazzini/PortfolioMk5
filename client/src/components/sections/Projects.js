@@ -48,7 +48,7 @@ const Projects = ({ darkMode, returnToHome, open }) => {
       </div> */}
       <div className='projects-container'>
         <Link
-          to='https://github.com/mramazzini/PortfolioMk5'
+          to='https://github.com/mramazzini/furniture-building'
           target='_blank'
           className={`card-container noselect ${activeCard[0] ? "active" : ""}`}
         >
@@ -83,9 +83,9 @@ const Projects = ({ darkMode, returnToHome, open }) => {
               <div className='card-background'> </div>
               <div id='prompt'>Personal Portfolio</div>
               <div className='title'>
-                Personal Portfolio
+                Swift Solutions furniture website.
                 <br />
-                built with React and Node
+                Built with React and Node.js.
                 <br />
               </div>
             </div>
@@ -126,11 +126,11 @@ const Projects = ({ darkMode, returnToHome, open }) => {
 
             <div id='card'>
               <div className='card-background'> </div>
-              <div id='prompt'>Mern Edu Site</div>
+              <div id='prompt'>Game Maker</div>
               <div className='title'>
-                Educational Site
+                Desktop application to create 2D games.
                 <br />
-                dedicated to teaching the MERN tech stack
+                built with React, Node and Electron.
                 <br />
               </div>
             </div>
@@ -138,7 +138,7 @@ const Projects = ({ darkMode, returnToHome, open }) => {
           </div>
         </Link>
         <Link
-          to='https://github.com/mramazzini/furniture-building'
+          to='https://github.com/mramazzini/C-Game-engine'
           target='_blank'
           className={`card-container noselect ${activeCard[0] ? "active" : ""}`}
         >
@@ -171,11 +171,11 @@ const Projects = ({ darkMode, returnToHome, open }) => {
 
             <div id='card'>
               <div className='card-background'> </div>
-              <div id='prompt'>Swift solutions</div>
+              <div id='prompt'>Game Engine</div>
               <div className='title'>
-                Furniture Assembly Company
+                2D Game Engine.
                 <br />
-                Built with TypeScript and TailwindCSS
+                Built with C++ and SDL library.
                 <br />
               </div>
             </div>
